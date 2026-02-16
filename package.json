@@ -1,0 +1,57 @@
+{
+  "name": "hole-puncher",
+  "version": "1.0.0",
+  "description": "Reduce compressed binary size by ~24% by zeroing unused ICU data entries",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "hole-puncher": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"const fs=require('fs');const p=require('./package.json');['dist/cli.js'].forEach(f=>{let c=fs.readFileSync(f,'utf8');c=c.replace('__VERSION__',p.version);fs.writeFileSync(f,c)})\"",
+    "test": "bun test",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "icu",
+    "binary",
+    "compression",
+    "bun",
+    "nodejs",
+    "cli",
+    "size",
+    "optimization"
+  ],
+  "author": "BYK",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BYK/hole-puncher.git"
+  },
+  "homepage": "https://github.com/BYK/hole-puncher#readme",
+  "bugs": {
+    "url": "https://github.com/BYK/hole-puncher/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.8",
+    "@types/bun": "latest",
+    "@types/node": "^22",
+    "typescript": "^5"
+  }
+}
