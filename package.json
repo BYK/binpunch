@@ -1,5 +1,5 @@
 {
-  "name": "hole-puncher",
+  "name": "binpunch",
   "version": "1.0.0",
   "description": "Reduce compressed binary size by ~24% by zeroing unused ICU data entries",
   "type": "module",
@@ -12,7 +12,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "hole-puncher": "./dist/cli.js"
+    "binpunch": "dist/cli.js"
   },
   "files": [
     "dist"
@@ -39,11 +39,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BYK/hole-puncher.git"
+    "url": "git+https://github.com/BYK/binpunch.git"
   },
-  "homepage": "https://github.com/BYK/hole-puncher#readme",
+  "homepage": "https://github.com/BYK/binpunch#readme",
   "bugs": {
-    "url": "https://github.com/BYK/hole-puncher/issues"
+    "url": "https://github.com/BYK/binpunch/issues"
   },
   "engines": {
     "node": ">=18"
